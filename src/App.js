@@ -38,7 +38,11 @@ function App() {
             </li>
           </ul>
         </div>
-        <div className="main__container--content">sddsgf</div>
+        <div className="main__container--content">
+          <div>porukr</div>
+          <input type="text"></input>
+          <button>Send</button>
+        </div>
       </div>
     </div>
   );
