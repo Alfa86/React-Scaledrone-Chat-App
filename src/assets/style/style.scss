@@ -1,0 +1,59 @@
+@import "mixins";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #a4a7ae;
+}
+h1 {
+  color: rebeccapurple;
+}
+.main {
+  @include flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.main__container {
+  display: flex;
+  max-width: 1400px;
+  height: 80vh;
+  border-radius: 10px;
+  width: 100%;
+  background: rgb(56, 72, 87);
+  background: linear-gradient(
+    90deg,
+    rgba(56, 72, 87, 1) 0%,
+    rgba(29, 37, 50, 1) 100%
+  );
+  &--sidebar {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+.main__container--sidebar {
+  border-right: 1px solid #a4a7ae1c;
+}
+.person {
+  border-bottom: 1px solid #a4a7ae1c;
+  padding: 10px;
+  list-style-type: none;
+}
+.person__in--chat {
+  @include flex;
+}
+.person__image {
+  margin-left: 15px;
+  border-radius: 50%;
+  background-color: none;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23EC3463' stroke-width='5' stroke-dasharray='100%25%2c 70%25' stroke-dashoffset='64' stroke-linecap='butt'/%3e%3c/svg%3e");
+  padding: 5px;
+}
+.person__info {
+  margin-left: 25px;
+}
