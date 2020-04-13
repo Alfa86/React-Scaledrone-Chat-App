@@ -92,3 +92,24 @@ h1 {
 .person__info {
   margin-left: 25px;
 }
+.info__marks {
+  text-align: right;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.person__message {
+  padding: 10px;
+  list-style-type: none;
+  background-color: #a4a7ae1c;
+  border-radius: 3px;
+  width: 80%;
+}
+.my__message {
+  float: right;
+  margin-top: 25px;
+  padding: 10px;
+  list-style-type: none;
+  background-color: #a4a7ae1c;
+  border-radius: 3px;
+  width: 80%;
+}
