@@ -22,7 +22,7 @@ h1 {
 .main__container {
   display: flex;
   max-width: 1250px;
-  height: 80vh;
+  height: 70vh;
   border-radius: 10px;
   width: 100%;
   background: rgb(56, 72, 87);
@@ -35,6 +35,41 @@ h1 {
     max-width: 300px;
     width: 100%;
   }
+}
+.main__container--content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 25px;
+}
+.input__field--container {
+  flex-grow: 0;
+  display: flex;
+  .input__field--field {
+    flex-grow: 1;
+    background-color: #a4a7ae1c;
+    border: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: #a4a7ae;
+    padding: 10px;
+  }
+  .input__field--button {
+    background-color: #a4a7ae1c;
+    border: none;
+    padding: 10px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    .input__field--send-icon {
+      width: 22px;
+      opacity: 0.8;
+      transform: rotate(-25deg);
+    }
+  }
+}
+.messages {
+  flex-grow: 1;
+  overflow: auto;
 }
 .main__container--sidebar {
   border-right: 1px solid #a4a7ae1c;

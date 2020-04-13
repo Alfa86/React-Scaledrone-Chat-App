@@ -2,6 +2,7 @@ import React from "react";
 import "./assets/style/style.scss";
 import logo from "./logo.svg";
 import "./App.css";
+import { ReactComponent as Send } from "./assets/images/send.svg";
 
 function App() {
   return (
@@ -39,9 +40,13 @@ function App() {
           </ul>
         </div>
         <div className="main__container--content">
-          <div>porukr</div>
-          <input type="text"></input>
-          <button>Send</button>
+          <div className="messages">lyfb ydh ydh ydh yddfhyadhydhsrtg</div>
+          <div className="input__field--container">
+            <input className="input__field--field" type="text"></input>
+            <button className="input__field--button">
+              <Send className="input__field--send-icon" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
