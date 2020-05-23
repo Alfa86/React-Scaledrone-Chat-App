@@ -1,4 +1,4 @@
-export const chnl_ID = "xiVAzxpKaHIvtF6d";
+export const chnl_ID = "cuZwQZ0l0TzDpPVp";
 
 export function randomColor() {
   return "#" + Math.floor(Math.random() * 0xffffff).toString(16);

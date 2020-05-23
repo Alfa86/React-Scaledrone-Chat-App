@@ -28,6 +28,7 @@ class Input extends React.Component {
             onChange={(e) => this.onChange(e)}
             value={this.state.text}
             type="text"
+            placeholder="Upišite poruku..."
             autoFocus={true}
           />
           <button className="input__field--button">

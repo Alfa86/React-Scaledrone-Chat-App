@@ -52,8 +52,8 @@ class Chat extends React.Component {
         <div className="main__container--sidebar">
           <h4>Ljudi u chatu</h4>
           <ul>
-            {console.log(this.drone.args)}
-            {/* {this.room._cache.map((person) => {
+            {/* {console.log(this.drone.subscribe("observable-room"))} */}
+            {/* {this.drone.subscribe("observable-room")._cache.map((person) => {
               return <Person />;
             })} */}
           </ul>

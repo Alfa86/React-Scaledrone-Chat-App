@@ -18,13 +18,14 @@ class Messages extends React.Component {
       <li
         style={{ borderColor: member.clientData.color }}
         className={className}
+        key={member.id}
       >
         <div className="person__in--chat">
           <p className="person__info">{text}</p>
-          <img
+          {/* <img
             className="person__image"
             src="https://placeimg.com/40/40/people"
-          ></img>
+          ></img> */}
         </div>
         <p className="info__marks">
           <span
