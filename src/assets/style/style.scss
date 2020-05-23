@@ -41,10 +41,13 @@ h1 {
   flex-direction: column;
   width: 100%;
   padding: 25px;
+  padding-right: 0px;
 }
 .input__field--container {
+  margin-top: 25px;
   flex-grow: 0;
   display: flex;
+  padding-right: 25px;
   .input__field--field {
     flex-grow: 1;
     background-color: #a4a7ae1c;
@@ -70,9 +73,11 @@ h1 {
 .messages {
   flex-grow: 1;
   overflow: auto;
+  padding-right: 25px;
 }
 .main__container--sidebar {
   border-right: 1px solid #a4a7ae1c;
+  overflow: auto;
 }
 .person {
   border-bottom: 1px solid #a4a7ae1c;
@@ -80,10 +85,11 @@ h1 {
   list-style-type: none;
 }
 .person__in--chat {
-  @include flex;
+  display: flex;
+  align-items: flex-start;
 }
 .person__image {
-  margin-left: 15px;
+  margin-left: 5px;
   border-radius: 50%;
   background-color: none;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23EC3463' stroke-width='5' stroke-dasharray='100%25%2c 70%25' stroke-dashoffset='64' stroke-linecap='butt'/%3e%3c/svg%3e");
@@ -99,10 +105,17 @@ h1 {
 }
 .person__message {
   padding: 10px;
-  list-style-type: none;
+  // list-style-type: none;
   background-color: #a4a7ae1c;
   border-radius: 3px;
   width: 80%;
+  float: left;
+  margin-top: 25px;
+  .person__in--chat {
+    img {
+      order: -1;
+    }
+  }
 }
 .my__message {
   float: right;
@@ -112,4 +125,30 @@ h1 {
   background-color: #a4a7ae1c;
   border-radius: 3px;
   width: 80%;
+  .person__in--chat {
+    p {
+      flex-grow: 1;
+    }
+  }
+}
+.date-time {
+  padding: 0px 5px;
+}
+
+//-----------scroll-------------------
+::-webkit-scrollbar {
+  height: 0px;
+  width: 4px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #bababa;
+  background-image: #f5f5f5;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
 }
