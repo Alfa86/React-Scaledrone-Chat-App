@@ -5,10 +5,15 @@ class Messages extends React.Component {
     const { messages } = this.props;
     return (
       <div className="messages">
+        {console.log(messages)}
         <ul>{messages.map((m) => this.renderMessage(m))}</ul>
       </div>
     );
   }
+  componentDidUpdate(message) {
+    const newId = new Date().getTime();
+  }
+
   renderMessage(message) {
     const { member, text } = message;
     const { currentMember } = this.props;
@@ -18,7 +23,7 @@ class Messages extends React.Component {
       <li
         style={{ borderColor: member.clientData.color }}
         className={className}
-        key={member.id}
+        // key={this.newId}
       >
         <div className="person__in--chat">
           <p className="person__info">{text}</p>
@@ -34,7 +39,7 @@ class Messages extends React.Component {
           >
             {member.clientData.username}
           </span>
-          {console.log(member)}|
+          {/* {console.log(member)}| */}
           <span className="date-time">{member.clientData.date}</span>|
           <span className="date-time">{member.clientData.time}</span>
         </p>

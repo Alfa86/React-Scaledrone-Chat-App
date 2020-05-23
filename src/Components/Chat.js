@@ -13,6 +13,7 @@ import Input from "./Input";
 class Chat extends React.Component {
   state = {
     messages: [],
+    members: [],
     member: {
       username: randomName(),
       color: randomColor(),
@@ -20,13 +21,11 @@ class Chat extends React.Component {
       date: currentDate(),
     },
   };
-
-  constructor() {
-    super();
+  componentWillMount() {
     this.drone = new window.Scaledrone(chnl_ID, {
       data: this.state.member,
     });
-    // console.log(this.state.member);
+    // console.log(this.data);
 
     this.drone.on("open", (error) => {
       if (error) {
@@ -38,7 +37,7 @@ class Chat extends React.Component {
     });
     const room = this.drone.subscribe("observable-room");
 
-    console.log(room);
+    // console.log(room);
     room.on("data", (data, member) => {
       const messages = this.state.messages;
       messages.push({ member, text: data });
@@ -52,10 +51,12 @@ class Chat extends React.Component {
         <div className="main__container--sidebar">
           <h4>Ljudi u chatu</h4>
           <ul>
-            {/* {console.log(this.drone.subscribe("observable-room"))} */}
-            {/* {this.drone.subscribe("observable-room")._cache.map((person) => {
+            {/* {this.state.members.map((person) => {
               return <Person />;
             })} */}
+            <Person />
+            <Person />
+            <Person />
           </ul>
         </div>
         <div className="main__container--content">
@@ -80,3 +81,4 @@ class Chat extends React.Component {
 export default Chat;
 
 // DOCUMENTATION https://www.scaledrone.com/docs/api-clients/javascript
+// DOCUMENTATION https://www.scaledrone.com/docs/api-clients/observable-rooms
