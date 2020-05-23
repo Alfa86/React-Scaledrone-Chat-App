@@ -1,5 +1,4 @@
-// import {Component} from "react";
-import React, { useEffect } from "react";
+import React from "react";
 
 class Messages extends React.Component {
   render() {
@@ -10,40 +9,16 @@ class Messages extends React.Component {
       </div>
     );
   }
-  //   timeDate() {
-  //     const currentTime =
-  //       new Date().getHours() +
-  //       ":" +
-  //       new Date().getMinutes() +
-  //       ":" +
-  //       new Date().getSeconds();
-  //     const currentDate =
-  //       new Date().getDate() +
-  //       "." +
-  //       (new Date().getMonth() + 1) +
-  //       "." +
-  //       new Date().getFullYear();
-  //   }
-
   renderMessage(message) {
     const { member, text } = message;
     const { currentMember } = this.props;
     const messageFromMe = member.id === currentMember.id;
     const className = messageFromMe ? "my__message" : "person__message";
-    // const currentTime =
-    //   new Date().getHours() +
-    //   ":" +
-    //   new Date().getMinutes() +
-    //   ":" +
-    //   new Date().getSeconds();
-    const currentDate =
-      new Date().getDate() +
-      "." +
-      (new Date().getMonth() + 1) +
-      "." +
-      new Date().getFullYear();
     return (
-      <li className={className} key="{index}">
+      <li
+        style={{ borderColor: member.clientData.color }}
+        className={className}
+      >
         <div className="person__in--chat">
           <p className="person__info">{text}</p>
           <img
@@ -52,10 +27,15 @@ class Messages extends React.Component {
           ></img>
         </div>
         <p className="info__marks">
-          {member.clientData.username} | {console.log(member.clientData)}
-          <span className="date-time">{currentDate}</span>
-          {/* |
-          <span className="date-time">{currentTime}</span> */}
+          <span
+            className="date-time"
+            style={{ color: member.clientData.color }}
+          >
+            {member.clientData.username}
+          </span>
+          {console.log(member)}|
+          <span className="date-time">{member.clientData.date}</span>|
+          <span className="date-time">{member.clientData.time}</span>
         </p>
       </li>
     );

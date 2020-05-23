@@ -1,10 +1,5 @@
 import React from "react";
 import "./assets/style/style.scss";
-// import logo from "./logo.svg";
-// import { API_KEY } from "./Components/util";
-import Person from "./Components/Sender";
-// import "./App.css";
-// import { ReactComponent as Send } from "./assets/images/send.svg";
 import Chat from "./Components/Chat";
 
 // const randomColor = "stroke='%23EC3463'";
@@ -14,17 +9,7 @@ import Chat from "./Components/Chat";
 function App() {
   return (
     <div className="main">
-      <div className="main__container">
-        <div className="main__container--sidebar">
-          <ul>
-            <Person />
-            <Person />
-          </ul>
-        </div>
-        <div className="main__container--content">
-          <Chat />
-        </div>
-      </div>
+      <Chat />
     </div>
   );
 }

@@ -1,6 +1,13 @@
 import React from "react";
-import { chnl_ID, randomColor, randomName } from "../Utile";
+import {
+  chnl_ID,
+  randomColor,
+  randomName,
+  currentTime,
+  currentDate,
+} from "../Utile";
 import Messages from "./Messages";
+import Person from "./Sender";
 import Input from "./Input";
 
 class Chat extends React.Component {
@@ -9,6 +16,8 @@ class Chat extends React.Component {
     member: {
       username: randomName(),
       color: randomColor(),
+      time: currentTime(),
+      date: currentDate(),
     },
   };
 
@@ -17,7 +26,7 @@ class Chat extends React.Component {
     this.drone = new window.Scaledrone(chnl_ID, {
       data: this.state.member,
     });
-    console.log(this.state.member);
+    // console.log(this.state.member);
 
     this.drone.on("open", (error) => {
       if (error) {
@@ -28,23 +37,35 @@ class Chat extends React.Component {
       this.setState({ member });
     });
     const room = this.drone.subscribe("observable-room");
+
     console.log(room);
-    room.on("data", (data, member, date) => {
+    room.on("data", (data, member) => {
       const messages = this.state.messages;
-      messages.push({ member, text: data, date });
+      messages.push({ member, text: data });
       this.setState({ messages });
     });
   }
 
   render() {
     return (
-      <>
-        <Messages
-          messages={this.state.messages}
-          currentMember={this.state.member}
-        />
-        <Input onSendMessage={this.onSendMessage} />
-      </>
+      <div className="main__container">
+        <div className="main__container--sidebar">
+          <h4>Ljudi u chatu</h4>
+          <ul>
+            {console.log(this.drone.args)}
+            {/* {this.room._cache.map((person) => {
+              return <Person />;
+            })} */}
+          </ul>
+        </div>
+        <div className="main__container--content">
+          <Messages
+            messages={this.state.messages}
+            currentMember={this.state.member}
+          />
+          <Input onSendMessage={this.onSendMessage} />
+        </div>
+      </div>
     );
   }
 
