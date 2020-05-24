@@ -145,6 +145,13 @@ h1 {
 .date-time {
   padding: 0px 5px;
 }
+input,
+button {
+  &:focus {
+    outline: none;
+    box-shadow: 0px 4px 6px 0px rgba(40, 59, 61, 0.55);
+  }
+}
 
 //-----------scroll-------------------
 ::-webkit-scrollbar {

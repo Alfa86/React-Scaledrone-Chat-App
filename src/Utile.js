@@ -4,24 +4,24 @@ export function randomColor() {
   return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
 }
 
-export function currentTime() {
-  return (
-    new Date().getHours() +
-    ":" +
-    new Date().getMinutes() +
-    ":" +
-    new Date().getSeconds()
-  );
-}
-export function currentDate() {
-  return (
-    new Date().getDate() +
-    "." +
-    (new Date().getMonth() + 1) +
-    "." +
-    new Date().getFullYear()
-  );
-}
+// export function currentTime() {
+//   return (
+//     new Date().getHours() +
+//     ":" +
+//     new Date().getMinutes() +
+//     ":" +
+//     new Date().getSeconds()
+//   );
+// }
+// export function currentDate() {
+//   return (
+//     new Date().getDate() +
+//     "." +
+//     (new Date().getMonth() + 1) +
+//     "." +
+//     new Date().getFullYear()
+//   );
+// }
 
 export function randomName() {
   const adjectives = [

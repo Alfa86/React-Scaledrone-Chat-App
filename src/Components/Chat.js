@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  chnl_ID,
-  randomColor,
-  randomName,
-  currentTime,
-  currentDate,
-} from "../Utile";
+import { chnl_ID, randomColor, randomName } from "../Utile";
 import Messages from "./Messages";
 import Person from "./Sender";
 import Input from "./Input";
@@ -17,15 +11,12 @@ class Chat extends React.Component {
     member: {
       username: randomName(),
       color: randomColor(),
-      time: currentTime(),
-      date: currentDate(),
     },
   };
   componentWillMount() {
     this.drone = new window.Scaledrone(chnl_ID, {
       data: this.state.member,
     });
-    // console.log(this.data);
 
     this.drone.on("open", (error) => {
       if (error) {
@@ -37,28 +28,32 @@ class Chat extends React.Component {
     });
     const room = this.drone.subscribe("observable-room");
 
-    // console.log(room);
-    room.on("data", (data, member) => {
+    room.on("message", (message) => {
+      const { data, id, timestamp, member } = message;
       const messages = this.state.messages;
-      messages.push({ member, text: data });
+      messages.push({ id, member, text: data, timestamp });
       this.setState({ messages });
     });
+    // room.on("members", (members) => {
+    //   const { data, id } = members;
+    //   const memberList = this.state.members;
+    //   memberList.push({ data, id });
+    //   this.setState({ memberList });
+    //   console.log(members);
+    // });
   }
 
   render() {
     return (
       <div className="main__container">
-        <div className="main__container--sidebar">
+        {/* <div className="main__container--sidebar">
           <h4>Ljudi u chatu</h4>
           <ul>
-            {/* {this.state.members.map((person) => {
-              return <Person />;
-            })} */}
             <Person />
             <Person />
             <Person />
           </ul>
-        </div>
+        </div> */}
         <div className="main__container--content">
           <Messages
             messages={this.state.messages}
