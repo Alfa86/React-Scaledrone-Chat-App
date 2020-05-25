@@ -9,9 +9,8 @@ class Messages extends React.Component {
       </div>
     );
   }
-
   renderMessage(message) {
-    const { member, text, id, timestamp } = message;
+    const { member, text, id, time } = message;
     const { currentMember } = this.props;
     const messageFromMe = member.id === currentMember.id;
     const className = messageFromMe ? "my__message" : "person__message";
@@ -31,6 +30,7 @@ class Messages extends React.Component {
           >
             {member.clientData.username}
           </span>
+          |<span className="date-time"> {time}</span>
         </p>
       </li>
     );
