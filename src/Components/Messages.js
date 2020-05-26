@@ -5,9 +5,24 @@ class Messages extends React.Component {
     const { messages } = this.props;
     return (
       <div className="messages">
-        <ul>{messages.map((m) => this.renderMessage(m))}</ul>
+        <ul>
+          {messages.map((m) => this.renderMessage(m))}
+          <div
+            style={{ clear: "both" }}
+            ref={(lastLi) => {
+              this.messagesEnd = lastLi;
+            }}
+          ></div>
+        </ul>
       </div>
     );
+  }
+  scrollToBottom = () => {
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  };
+
+  componentDidUpdate() {
+    this.scrollToBottom();
   }
   renderMessage(message) {
     const { member, text, id, time } = message;
