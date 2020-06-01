@@ -13,7 +13,7 @@ class Chat extends React.Component {
       color: randomColor(),
     },
   };
-  componentWillMount() {
+  componentDidMount() {
     this.drone = new window.Scaledrone(chnl_ID, {
       data: this.state.member,
     });
